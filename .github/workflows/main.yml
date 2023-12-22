@@ -1,13 +1,15 @@
 name: Main Kittygram workflow
 
-on: push
-
+on:
+  push:
+  workflow_dispatch:
+  
 jobs:
   tests:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:13
+        image: postgres:13.10
         env:
           POSTGRES_USER: kittygram_user
           POSTGRES_PASSWORD: kittygram_password
