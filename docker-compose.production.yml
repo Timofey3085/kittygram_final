@@ -15,29 +15,29 @@ services:
   backend:
     image: timofey1985/kittygram_backend
     env_file: .env
-    depends_on:
-      - db
     volumes:
-      - static:/backend_static
-      - media:/media/ 
-    
-  
+      - static:/app/collected_static
+      - media:/app/media
+    depends_on:
+      - db 
+
   frontend:
     image: timofey1985/kittygram_frontend
     env_file: .env
+    command: cp -r /app/build/. /static/
+    volumes:
+      - static:/static
     depends_on:
       - backend
-    command: cp -r /app/build/. /frontend_static/
-    volumes:
-      - static:/frontend_static
 
   gateway:
     image: timofey1985/kittygram_gateway
     env_file: .env
-    depends_on:
-      - frontend
     volumes:
-      - static:/staticfiles/
-      - media:/media/ 
+      - static:/static/
+      - media:/media/
+    depends_on:
+      - backend
+      - frontend
     ports:
       - 9000:80
