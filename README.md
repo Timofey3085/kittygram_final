@@ -2,7 +2,7 @@
 
 # Kittygram - сервис для любителей котиков.
 
-[![Workflow Status]https://github.com/Timofey3085/kittygram_final/actions/runs/7323808969/workflow]
+[![Workflow Status]https://github.com/Timofey3085/kittygram_final/actions/runs/7323808969]
 
 Что умеет проект:
 
