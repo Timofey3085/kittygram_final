@@ -13,7 +13,7 @@ Workflow Status
 # Установка
 Клонируйте репозиторий на свой компьютер:
 
-git clone git@github.com:Yasuo20012001/kittygram_final.git
+git clone git@github.com:Timofey3085/kittygram_final.git
 cd kittygram
 Создайте файл .env и заполните его своими данными. Перечень данных указан в корневой директории проекта в файле .env.example.
 
@@ -72,6 +72,7 @@ location / {
     proxy_set_header Host $http_host;
     proxy_pass http://127.0.0.1:9000;
 }
+
 Проверьте работоспособность конфига Nginx:
 
 sudo nginx -t
@@ -100,4 +101,4 @@ TELEGRAM_TOKEN                 # токен бота (получить токе�
 
 Автор
 
-(https://github.com/Timofey3085)
+[Timofey - Razborshchikov](https://github.com/Timofey3085)
