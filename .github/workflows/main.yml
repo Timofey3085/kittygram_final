@@ -1,6 +1,9 @@
-name: Main kittygram workflow
+name: Main Kittygram workflow
 
-on: push
+on:
+  push:
+    branches:
+      - '*'
 
 jobs:
   tests:
@@ -47,8 +50,8 @@ jobs:
   build_and_push_to_docker_hub:
     name: Push Docker image to DockerHub
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     needs: tests
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -87,8 +90,8 @@ jobs:
   build_frontend_and_push_to_docker_hub:
     name: Push frontend Docker image to DockerHub
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     needs: frontend_tests
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -131,11 +134,11 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     needs: 
       - build_and_push_to_docker_hub
       - build_frontend_and_push_to_docker_hub
       - build_gateway_and_push_to_docker_hub
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -168,8 +171,8 @@ jobs:
 
   send_message:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     needs: deploy
+    if: github.ref == 'refs/heads/master'
     steps:
       - name: Send message
         uses: appleboy/telegram-action@master
