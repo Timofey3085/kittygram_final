@@ -141,5 +141,5 @@
     TELEGRAM_TO                    # id телеграм-аккаунта (можно узнать у @userinfobot, команда /start)
     TELEGRAM_TOKEN                 # токен бота (получить токен можно у @BotFather, /token, имя бота)
     ```
-# Autor
+# Автор
 [Timofey - Razborshchikov](https://github.com/Timofey3085)
